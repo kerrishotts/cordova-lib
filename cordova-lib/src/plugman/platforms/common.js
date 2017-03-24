@@ -88,6 +88,7 @@ module.exports = common = {
         } else if (fs.statSync(src).isDirectory()) {
             // XXX shelljs decides to create a directory when -R|-r is used which sucks. http://goo.gl/nbsjq
             shell.cp('-Rf', src+'/*', dest);
+            shell.cp('-Rf', src+'/.*', dest);
         } else {
             shell.cp('-f', src, dest);
         }
